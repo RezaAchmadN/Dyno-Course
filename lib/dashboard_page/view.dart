@@ -14,27 +14,30 @@ class _DashboardViewState extends DashboardController {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            _buildBanner(),
-            _buildFitur(),
-            _buildArtikel(),
+    return MaterialApp(
+      theme: ThemeData(fontFamily: 'Gilroy'),
+      home: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              _buildBanner(),
+              _buildFitur(),
+              _buildArtikel(),
+            ],
+          ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (newIndex) => setState(() => _index = newIndex),
+          currentIndex: _index,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home), title: Text("Beranda")),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person), title: Text("Profil")),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (newIndex) => setState(() => _index = newIndex),
-        currentIndex: _index,
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home), title: Text("Beranda")),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), title: Text("Profil")),
-        ],
       ),
     );
   }
@@ -58,6 +61,7 @@ class _DashboardViewState extends DashboardController {
                     "Selamat Pagi",
                     style: TextStyle(
                       fontSize: 18,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   Text(
@@ -144,12 +148,18 @@ class _DashboardViewState extends DashboardController {
           children: <Widget>[
             Text(
               "⋆ Progress Belajar Anakmu ⋆",
-              style: TextStyle(fontSize: 16, color: Colors.red[300]),
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.red[300],
+                  fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 4),
             Text(
               "Mewarnai",
-              style: TextStyle(fontSize: 12, color: Colors.red[300]),
+              style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.red[300],
+                  fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 8),
             Container(
@@ -159,7 +169,7 @@ class _DashboardViewState extends DashboardController {
                 totalSteps: 5,
                 currentStep: 2,
                 size: 36,
-                selectedColor: Colors.red[300],
+                selectedColor: Colors.green[300],
                 unselectedColor: Colors.grey[200],
                 customStep: (index, color, _) => Column(
                   children: <Widget>[
@@ -169,7 +179,7 @@ class _DashboardViewState extends DashboardController {
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(10.0),
                                   bottomLeft: Radius.circular(10.0)),
-                              color: index == 2 - 1 ? Colors.green[300] : color,
+                              color: index == 2 - 1 ? Colors.red[300] : color,
                             ),
                             height: 12,
                           )
@@ -179,17 +189,15 @@ class _DashboardViewState extends DashboardController {
                                   borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(10.0),
                                       bottomRight: Radius.circular(10.0)),
-                                  color: index == 2 - 1
-                                      ? Colors.green[300]
-                                      : color,
+                                  color:
+                                      index == 2 - 1 ? Colors.red[300] : color,
                                 ),
                                 height: 12,
                               )
                             : Container(
                                 decoration: BoxDecoration(
-                                  color: index == 2 - 1
-                                      ? Colors.green[300]
-                                      : color,
+                                  color:
+                                      index == 2 - 1 ? Colors.red[300] : color,
                                 ),
                                 height: 12,
                               ),
@@ -227,12 +235,12 @@ class _DashboardViewState extends DashboardController {
           SizedBox(
             height: 4,
           ),
-          _fitur("assets/images/g.png", "Edukasi",
+          _fitur("assets/images/education.png", "Edukasi",
               "Yuk belajar bersama anak kesayangan anda"),
-          _fitur("assets/images/y.png", "konsultasi",
+          _fitur("assets/images/consultation.png", "konsultasi",
               "Tanyakan tentang anakmu pada yang berpengalaman"),
-          _fitur("assets/images/r.png", "Hiburan",
-              "Yuk bersenang-senang bersama buah hatimu"),
+          _fitur("assets/images/r.png", "Terapi",
+              "Yuk terapi anakmu dengan cara yang tepat"),
         ],
       ),
     );
@@ -357,7 +365,10 @@ class _DashboardViewState extends DashboardController {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               onPressed: () {},
-                              child: Text("Lihat"),
+                              child: Text(
+                                "Lihat",
+                                style: TextStyle(fontWeight: FontWeight.w600),
+                              ),
                             ),
                           )
                         ],
