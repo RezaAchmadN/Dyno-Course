@@ -30,6 +30,7 @@ dependencies:
   step_progress_indicator: ^0.2.3+6
   carousel_slider: ^2.2.1
   flutter_svg: ^0.18.0
+  google_fonts: ^1.1.0
 
 dev_dependencies:
   flutter_test:
