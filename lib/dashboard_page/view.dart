@@ -3,6 +3,8 @@ import 'package:gemastik/dashboard_page/controller.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+void main() => runApp(DashboardView());
+
 class DashboardView extends StatefulWidget {
   @override
   _DashboardViewState createState() => _DashboardViewState();
@@ -44,17 +46,19 @@ class _DashboardViewState extends DashboardController {
 
   Widget _buildBanner() {
     return Container(
+      height: 280,
       child: Stack(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 105.0),
+            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
             child: Image.asset("assets/images/dashboardBanner.png"),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(16.0, 42.0, 16.0, 0),
-            child: Center(
+            padding: EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
+            child: Container(
+              constraints: BoxConstraints.expand(),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
@@ -239,7 +243,7 @@ class _DashboardViewState extends DashboardController {
               "Yuk belajar bersama anak kesayangan anda"),
           _fitur("assets/images/consultation.png", "konsultasi",
               "Tanyakan tentang anakmu pada yang berpengalaman"),
-          _fitur("assets/images/r.png", "Terapi",
+          _fitur("assets/images/therapy.png", "Terapi",
               "Yuk terapi anakmu dengan cara yang tepat"),
         ],
       ),

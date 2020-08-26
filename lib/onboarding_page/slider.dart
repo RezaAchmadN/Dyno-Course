@@ -5,15 +5,15 @@ class SliderPage extends StatelessWidget {
   final String title;
   final String description;
   final String image;
+  final Color background;
 
-  SliderPage({this.title, this.description, this.image});
+  SliderPage({this.title, this.description, this.image, this.background});
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-
     return Container(
-      color: Colors.white,
+      color: background,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -26,7 +26,8 @@ class SliderPage extends StatelessWidget {
           ),
           Text(
             title,
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
           ),
           SizedBox(
             height: 20,
@@ -40,6 +41,7 @@ class SliderPage extends StatelessWidget {
                 fontWeight: FontWeight.w800,
                 fontSize: 16,
                 letterSpacing: 0.7,
+                color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),
