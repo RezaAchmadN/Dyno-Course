@@ -239,12 +239,21 @@ class _DashboardViewState extends DashboardController {
           SizedBox(
             height: 4,
           ),
-          _fitur("assets/images/education.png", "Edukasi",
-              "Yuk belajar bersama anak kesayangan anda"),
-          _fitur("assets/images/consultation.png", "konsultasi",
-              "Tanyakan tentang anakmu pada yang berpengalaman"),
-          _fitur("assets/images/therapy.png", "Terapi",
-              "Yuk terapi anakmu dengan cara yang tepat"),
+          GestureDetector(
+            onTap: () => navigateToEducationPage(),
+            child: _fitur("assets/images/education.png", "Edukasi",
+                "Yuk belajar bersama anak kesayangan anda"),
+          ),
+          GestureDetector(
+            onTap: () => navigateToConsultationPage(),
+            child: _fitur("assets/images/consultation.png", "konsultasi",
+                "Tanyakan tentang anakmu pada yang berpengalaman"),
+          ),
+          GestureDetector(
+            onTap: () => navigateToTherapyPage(),
+            child: _fitur("assets/images/therapy.png", "Terapi",
+                "Yuk terapi anakmu dengan cara yang tepat"),
+          ),
         ],
       ),
     );

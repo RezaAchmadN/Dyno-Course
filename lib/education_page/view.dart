@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gemastik/education_page/controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main(List<String> args) {
@@ -10,7 +11,7 @@ class EducationView extends StatefulWidget {
   _EducationViewState createState() => _EducationViewState();
 }
 
-class _EducationViewState extends State<EducationView> {
+class _EducationViewState extends EducationController {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -81,7 +82,11 @@ class _EducationViewState extends State<EducationView> {
                           size: 30,
                           color: Colors.white,
                         ),
-                        onPressed: null),
+                        onPressed: () {
+                          setState(() {
+                            navigateToDashboardPage();
+                          });
+                        }),
                   ),
                   SizedBox(height: 16),
                   Padding(

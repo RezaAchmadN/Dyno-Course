@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:gemastik/consultation_page/controller.dart';
+import 'package:gemastik/therapy_page/controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main(List<String> args) {
-  runApp(ConsultationView());
+  runApp(TherapyView());
 }
 
-class ConsultationView extends StatefulWidget {
+class TherapyView extends StatefulWidget {
   @override
-  _ConsultationViewState createState() => _ConsultationViewState();
+  _TherapyViewState createState() => _TherapyViewState();
 }
 
-class _ConsultationViewState extends ConsultationController {
+class _TherapyViewState extends TherapyController {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,29 +28,26 @@ class _ConsultationViewState extends ConsultationController {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    "Rekomendasi Dokter",
+                    "Materi",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
-                _buildDoctor(
-                  "Abiyyu Habibi",
+                _buildMateri(
+                  "Fisik",
+                  Colors.red[300],
+                  "assets/images/therapy_physic.png",
+                ),
+                SizedBox(height: 16),
+                _buildMateri(
+                  "Berbicara",
                   Colors.blue[300],
-                  "assets/images/consultation_doctor1.png",
-                  "Dokter Anak",
+                  "assets/images/therapy_talk.png",
                 ),
                 SizedBox(height: 16),
-                _buildDoctor(
-                  "Habibi Anze",
+                _buildMateri(
+                  "Kerja",
                   Colors.green[300],
-                  "assets/images/consultation_doctor2.png",
-                  "Dokter Psikologi",
-                ),
-                SizedBox(height: 16),
-                _buildDoctor(
-                  "Abiyyu Anjay",
-                  Colors.deepPurple[800],
-                  "assets/images/consultation_doctor3.png",
-                  "Dokter Terapi",
+                  "assets/images/therapy_work.png",
                 ),
                 SizedBox(height: 16),
               ],
@@ -63,7 +60,7 @@ class _ConsultationViewState extends ConsultationController {
 
   Widget _buildbanner() {
     return Container(
-      color: Colors.orange[300],
+      color: Colors.red[400],
       width: double.infinity,
       height: 200,
       child: Row(
@@ -100,7 +97,7 @@ class _ConsultationViewState extends ConsultationController {
                         textStyle: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w300,
-                            fontSize: 14),
+                            fontSize: 16),
                       ),
                     ),
                   ),
@@ -121,7 +118,7 @@ class _ConsultationViewState extends ConsultationController {
                   Padding(
                     padding: const EdgeInsets.only(left: 24.0),
                     child: Text(
-                      "Yuk temukan doktermu untuk mengkonsultasikan buah hatimu",
+                      "Yuk terapi buah hatimu dengan tutorial video yang kami berikan",
                       style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
                             color: Colors.white,
@@ -135,100 +132,64 @@ class _ConsultationViewState extends ConsultationController {
               ),
             ),
           ),
-          Image.asset("assets/images/consultation_banner.png"),
+          Image.asset("assets/images/therapy_banner.png"),
         ],
       ),
     );
   }
 
-  Widget _buildDoctor(
-      String namaDokter, Color warna, String gambar, String jenisDokter) {
+  Widget _buildMateri(String judul, Color warna, String gambar) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
       child: Container(
-        height: 150,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           color: warna,
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Image.asset(gambar),
             Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Dr.",
+                    "Terapi",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
                         fontWeight: FontWeight.w300),
                   ),
                   Text(
-                    namaDokter.toString(),
+                    judul.toString(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    jenisDokter.toString(),
+                    "Terdapat 7 video",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 12,
+                        fontSize: 16,
                         fontWeight: FontWeight.w300),
                   ),
-                ],
-              ),
-            ),
-            Expanded(
-              // height: double.infinity,
-              child: Stack(
-                children: [
-                  Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(4, 4, 2, 4),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: Colors.orange[200],
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                "4.8",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 14),
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.white,
-                                size: 15,
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
+                  SizedBox(height: 12),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(color: Colors.white),
                     ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_forward_ios,
+                    child: Text(
+                      "Mulai",
+                      style: TextStyle(
                           color: Colors.white,
-                        ),
-                        onPressed: null),
-                  ),
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )
                 ],
               ),
             )

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gemastik/dashboard_page.dart';
+import 'package:gemastik/onboarding_page/controller.dart';
 import 'package:gemastik/onboarding_page/slider.dart';
 
 class OnBoardView extends StatefulWidget {
@@ -7,7 +7,7 @@ class OnBoardView extends StatefulWidget {
   _OnBoardViewState createState() => _OnBoardViewState();
 }
 
-class _OnBoardViewState extends State<OnBoardView> {
+class _OnBoardViewState extends OnboardingController {
   int _currentPage = 0;
   PageController _controller = PageController();
 
@@ -79,12 +79,7 @@ class _OnBoardViewState extends State<OnBoardView> {
               InkWell(
                 onTap: () {
                   (_currentPage == (_pages.length - 1))
-                      ? Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DashboardPage()),
-                          (Route<dynamic> route) => false,
-                        )
+                      ? navigateToDashboardPage()
                       : _controller.nextPage(
                           duration: Duration(milliseconds: 800),
                           curve: Curves.easeInOutQuint);
