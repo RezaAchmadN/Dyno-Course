@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gemastik/dashboard_page/controller.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -51,7 +52,7 @@ class _DashboardViewState extends DashboardController {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-            child: Image.asset("assets/images/dashboardBanner.png"),
+            child: SvgPicture.asset("assets/svgs/dashboardBanner.svg"),
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
@@ -241,17 +242,20 @@ class _DashboardViewState extends DashboardController {
           ),
           GestureDetector(
             onTap: () => navigateToEducationPage(),
-            child: _fitur("assets/images/education.png", "Edukasi",
-                "Yuk belajar bersama anak kesayangan anda"),
+            child: _fitur("assets/svgs/education.svg", Colors.green[300],
+                "Edukasi", "Yuk belajar bersama anak kesayangan anda"),
           ),
           GestureDetector(
             onTap: () => navigateToConsultationPage(),
-            child: _fitur("assets/images/consultation.png", "konsultasi",
+            child: _fitur(
+                "assets/svgs/consultation.svg",
+                Colors.orange[300],
+                "konsultasi",
                 "Tanyakan tentang anakmu pada yang berpengalaman"),
           ),
           GestureDetector(
             onTap: () => navigateToTherapyPage(),
-            child: _fitur("assets/images/therapy.png", "Terapi",
+            child: _fitur("assets/svgs/therapy.svg", Colors.red[300], "Terapi",
                 "Yuk terapi anakmu dengan cara yang tepat"),
           ),
         ],
@@ -259,7 +263,7 @@ class _DashboardViewState extends DashboardController {
     );
   }
 
-  Widget _fitur(String img, String title, String desc) {
+  Widget _fitur(String img, Color color, String title, String desc) {
     return Container(
       padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 2.0),
       child: Card(
@@ -271,7 +275,18 @@ class _DashboardViewState extends DashboardController {
           padding: EdgeInsets.all(16.0),
           child: Row(
             children: <Widget>[
-              Image.asset(img.toString()),
+              Container(
+                height: 66,
+                width: 66,
+                child: Center(
+                  child: SvgPicture.asset(
+                    img,
+                    height: 33,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12), color: color),
+              ),
               SizedBox(
                 width: 16,
               ),

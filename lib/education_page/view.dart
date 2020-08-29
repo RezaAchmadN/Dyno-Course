@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gemastik/education_page/controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -35,19 +36,19 @@ class _EducationViewState extends EducationController {
                 _buildMateri(
                   "Mewarnai",
                   Colors.deepPurple[800],
-                  "assets/images/education_mewarnai.png",
+                  "assets/svgs/education_mewarnai.svg",
                 ),
                 SizedBox(height: 16),
                 _buildMateri(
                   "Menghitung",
                   Colors.red[300],
-                  "assets/images/education_menghitung.png",
+                  "assets/svgs/education_menghitung.svg",
                 ),
                 SizedBox(height: 16),
                 _buildMateri(
                   "Membaca",
                   Colors.blue[300],
-                  "assets/images/education_membaca.png",
+                  "assets/svgs/education_membaca.svg",
                 ),
                 SizedBox(height: 16),
               ],
@@ -132,7 +133,7 @@ class _EducationViewState extends EducationController {
               ),
             ),
           ),
-          Image.asset("assets/images/education_banner.png"),
+          SvgPicture.asset("assets/svgs/education_banner.svg"),
         ],
       ),
     );
@@ -148,7 +149,9 @@ class _EducationViewState extends EducationController {
         ),
         child: Row(
           children: [
-            Image.asset(gambar),
+            SvgPicture.asset(
+              gambar,
+            ),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gemastik/consultation_page/controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -135,7 +136,7 @@ class _ConsultationViewState extends ConsultationController {
               ),
             ),
           ),
-          Image.asset("assets/images/consultation_banner.png"),
+          SvgPicture.asset("assets/svgs/consultation_banner.svg"),
         ],
       ),
     );

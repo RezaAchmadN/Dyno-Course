@@ -16,25 +16,25 @@ class _OnBoardViewState extends OnboardingController {
         title: "Edukasi",
         description:
             "berisi mata pelajaran yang dikhususkan untuk meningkatkan kefokusan terhadap anak Down Syndrome.",
-        image: "assets/svgs/1.svg",
+        image: "assets/svgs/education.svg",
         background: Colors.green[300]),
     SliderPage(
         title: "Konsultasi",
         description:
             "menyediakan kesempatan dan kemudahan bagi para orang tua anak down syndrome untuk berkonsultasi dengan dokter psikologi",
-        image: "assets/svgs/2.svg",
+        image: "assets/svgs/consultation.svg",
         background: Colors.orange[300]),
     SliderPage(
         title: "Terapi",
         description:
             "berisi tentang perlakuan langkah terapi yang dibutuhkan bagi anak down syndrome",
-        image: "assets/svgs/3.svg",
+        image: "assets/svgs/therapy.svg",
         background: Colors.blue[300]),
     SliderPage(
         title: "Komunitas",
         description:
             "menghubungkan pengguna Edufine yang satu dengan lainnya, fitur ini juga dapat dijadikan sebagai platform sharing bagi para orang tua dengan anak down syndrome ",
-        image: "assets/svgs/4.svg",
+        image: "assets/svgs/community.svg",
         background: Colors.red[300]),
   ];
 

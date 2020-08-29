@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gemastik/therapy_page/controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -35,19 +36,19 @@ class _TherapyViewState extends TherapyController {
                 _buildMateri(
                   "Fisik",
                   Colors.red[300],
-                  "assets/images/therapy_physic.png",
+                  "assets/svgs/therapy_physic.svg",
                 ),
                 SizedBox(height: 16),
                 _buildMateri(
                   "Berbicara",
                   Colors.blue[300],
-                  "assets/images/therapy_talk.png",
+                  "assets/svgs/therapy_talk.svg",
                 ),
                 SizedBox(height: 16),
                 _buildMateri(
                   "Kerja",
                   Colors.green[300],
-                  "assets/images/therapy_work.png",
+                  "assets/svgs/therapy_work.svg",
                 ),
                 SizedBox(height: 16),
               ],
@@ -132,7 +133,7 @@ class _TherapyViewState extends TherapyController {
               ),
             ),
           ),
-          Image.asset("assets/images/therapy_banner.png"),
+          SvgPicture.asset("assets/svgs/therapy_banner.svg"),
         ],
       ),
     );
@@ -148,7 +149,7 @@ class _TherapyViewState extends TherapyController {
         ),
         child: Row(
           children: [
-            Image.asset(gambar),
+            SvgPicture.asset(gambar),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
