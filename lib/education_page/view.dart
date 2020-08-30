@@ -33,22 +33,31 @@ class _EducationViewState extends EducationController {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
-                _buildMateri(
-                  "Mewarnai",
-                  Colors.deepPurple[800],
-                  "assets/svgs/education_mewarnai.svg",
+                GestureDetector(
+                  child: _buildMateri(
+                    "Mewarnai",
+                    Colors.deepPurple[800],
+                    "assets/svgs/education_mewarnai.svg",
+                  ),
+                  onTap: () => navigateToMewarnai(),
                 ),
                 SizedBox(height: 16),
-                _buildMateri(
-                  "Menghitung",
-                  Colors.red[300],
-                  "assets/svgs/education_menghitung.svg",
+                GestureDetector(
+                  child: _buildMateri(
+                    "Menghitung",
+                    Colors.red[300],
+                    "assets/svgs/education_menghitung.svg",
+                  ),
+                  onTap: () => navigateToMenghitung(),
                 ),
                 SizedBox(height: 16),
-                _buildMateri(
-                  "Membaca",
-                  Colors.blue[300],
-                  "assets/svgs/education_membaca.svg",
+                GestureDetector(
+                  child: _buildMateri(
+                    "Membaca",
+                    Colors.blue[300],
+                    "assets/svgs/education_membaca.svg",
+                  ),
+                  onTap: () => navigateToMembaca(),
                 ),
                 SizedBox(height: 16),
               ],
