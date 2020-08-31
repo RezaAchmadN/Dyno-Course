@@ -33,22 +33,31 @@ class _TherapyViewState extends TherapyController {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
-                _buildMateri(
-                  "Fisik",
-                  Colors.red[300],
-                  "assets/svgs/therapy_physic.svg",
+                GestureDetector(
+                  child: _buildMateri(
+                    "Fisik",
+                    Colors.red[300],
+                    "assets/svgs/therapy_physic.svg",
+                  ),
+                  onTap: () => navigateToFisik(),
                 ),
                 SizedBox(height: 16),
-                _buildMateri(
-                  "Berbicara",
-                  Colors.blue[300],
-                  "assets/svgs/therapy_talk.svg",
+                GestureDetector(
+                  child: _buildMateri(
+                    "Berbicara",
+                    Colors.blue[300],
+                    "assets/svgs/therapy_talk.svg",
+                  ),
+                  onTap: () => navigateToBerbicara(),
                 ),
                 SizedBox(height: 16),
-                _buildMateri(
-                  "Kerja",
-                  Colors.green[300],
-                  "assets/svgs/therapy_work.svg",
+                GestureDetector(
+                  child: _buildMateri(
+                    "Kerja",
+                    Colors.green[300],
+                    "assets/svgs/therapy_work.svg",
+                  ),
+                  onTap: () => navigateToKerja(),
                 ),
                 SizedBox(height: 16),
               ],
