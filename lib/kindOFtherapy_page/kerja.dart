@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gemastik/kindOFtherapy_page/controller.dart';
 import 'package:gemastik/kindOFtherapy_page/view.dart';
 
 void main(List<String> args) {

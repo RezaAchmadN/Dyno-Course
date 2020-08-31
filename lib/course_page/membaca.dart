@@ -57,7 +57,7 @@ class _MembacaPageState extends State<MembacaPage> {
           child: Column(
             children: [
               SizedBox(height: 40),
-              BuildBanner(
+              BuildBannerCourse(
                 title: "Membaca",
                 description: "Materi ini akan mengajarkan anakmu dalam membaca",
                 image: "assets/svgs/education_membaca.svg",

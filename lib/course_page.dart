@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gemastik/course_page/view.dart';
 
 class CoursePage extends StatefulWidget {
   @override

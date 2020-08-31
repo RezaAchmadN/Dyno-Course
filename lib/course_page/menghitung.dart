@@ -57,7 +57,7 @@ class _MenghitungPageState extends State<MenghitungPage> {
           child: Column(
             children: [
               SizedBox(height: 40),
-              BuildBanner(
+              BuildBannerCourse(
                 title: "Menghitung",
                 description:
                     "Materi ini akan mengajarkan anakmu dalam menghitung",

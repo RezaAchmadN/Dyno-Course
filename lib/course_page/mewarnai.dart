@@ -57,7 +57,7 @@ class _MewarnaiPageState extends State<MewarnaiPage> {
           child: Column(
             children: [
               SizedBox(height: 40),
-              BuildBanner(
+              BuildBannerCourse(
                 title: "Mewarnai",
                 description:
                     "Materi ini akan mengajarkan anakmu dalam mewarnai, materi ini terdiri dari 7 level",

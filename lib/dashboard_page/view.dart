@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gemastik/dashboard_page/controller.dart';
+import 'package:gemastik/profile_page/view.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -20,19 +21,24 @@ class _DashboardViewState extends DashboardController {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Gilroy'),
       home: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              _buildBanner(),
-              _buildFitur(),
-              _buildArtikel(),
-            ],
-          ),
-        ),
+        body: _index == 0
+            ? SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    _buildBanner(),
+                    _buildFitur(),
+                    _buildArtikel(),
+                  ],
+                ),
+              )
+            : ProfileView(),
         bottomNavigationBar: BottomNavigationBar(
-          onTap: (newIndex) => setState(() => _index = newIndex),
+          onTap: (newIndex) => setState(() {
+            _index = newIndex;
+            print(_index.toString());
+          }),
           currentIndex: _index,
           items: [
             BottomNavigationBarItem(

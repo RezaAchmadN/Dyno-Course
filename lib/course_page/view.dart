@@ -3,21 +3,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gemastik/course_page/controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BuildBanner extends StatefulWidget {
+class BuildBannerCourse extends StatefulWidget {
   final String title;
   final String description;
   final String image;
   final Color background;
 
-  const BuildBanner(
+  const BuildBannerCourse(
       {Key key, this.title, this.description, this.image, this.background})
       : super(key: key);
 
   @override
-  _BuildBannerState createState() => _BuildBannerState();
+  _BuildBannerCourseState createState() => _BuildBannerCourseState();
 }
 
-class _BuildBannerState extends CourseController {
+class _BuildBannerCourseState extends CourseController {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,12 +38,14 @@ class _BuildBannerState extends CourseController {
                   Padding(
                     padding: const EdgeInsets.only(left: 0.0),
                     child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_back,
-                          size: 30,
-                          color: Colors.white,
-                        ),
-                        onPressed: () => navigateToEducationPage()),
+                      icon: Icon(
+                        Icons.arrow_back,
+                        size: 30,
+                        color: Colors.white,
+                      ),
+                      // onPressed: () {},
+                      onPressed: () => navigateToEducationPage(),
+                    ),
                   ),
                   SizedBox(height: 16),
                   Padding(
