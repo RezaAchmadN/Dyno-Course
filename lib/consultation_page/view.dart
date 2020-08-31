@@ -33,25 +33,46 @@ class _ConsultationViewState extends ConsultationController {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
-                _buildDoctor(
-                  "Abiyyu Habibi",
-                  Colors.blue[300],
-                  "assets/images/consultation_doctor1.png",
-                  "Dokter Anak",
+                GestureDetector(
+                  onTap: () => navigateToChatPage(
+                    "Abiyyu Habibi",
+                    "assets/images/consultation_doctor1.png",
+                    Colors.blue[300],
+                  ),
+                  child: _buildDoctor(
+                    "Abiyyu Habibi",
+                    Colors.blue[300],
+                    "assets/images/consultation_doctor1.png",
+                    "Dokter Anak",
+                  ),
                 ),
                 SizedBox(height: 16),
-                _buildDoctor(
-                  "Habibi Anze",
-                  Colors.green[300],
-                  "assets/images/consultation_doctor2.png",
-                  "Dokter Psikologi",
+                GestureDetector(
+                  onTap: () => navigateToChatPage(
+                    "Habibi Anze",
+                    "assets/images/consultation_doctor2.png",
+                    Colors.green[300],
+                  ),
+                  child: _buildDoctor(
+                    "Habibi Anze",
+                    Colors.green[300],
+                    "assets/images/consultation_doctor2.png",
+                    "Dokter Psikologi",
+                  ),
                 ),
                 SizedBox(height: 16),
-                _buildDoctor(
-                  "Abiyyu Anjay",
-                  Colors.deepPurple[800],
-                  "assets/images/consultation_doctor3.png",
-                  "Dokter Terapi",
+                GestureDetector(
+                  onTap: () => navigateToChatPage(
+                    "Abiyyu Anjay",
+                    "assets/images/consultation_doctor3.png",
+                    Colors.deepPurple[800],
+                  ),
+                  child: _buildDoctor(
+                    "Abiyyu Anjay",
+                    Colors.deepPurple[800],
+                    "assets/images/consultation_doctor3.png",
+                    "Dokter Terapi",
+                  ),
                 ),
                 SizedBox(height: 16),
               ],
