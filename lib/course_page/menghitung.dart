@@ -51,29 +51,27 @@ class _MenghitungPageState extends State<MenghitungPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 40),
-              BuildBannerCourse(
-                title: "Menghitung",
-                description:
-                    "Materi ini akan mengajarkan anakmu dalam menghitung",
-                image: "assets/svgs/education_menghitung.svg",
-                background: Colors.red[300],
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Column(
-                children: List<Widget>.generate(_levels.length, (int index) {
-                  return _levels[index];
-                }),
-              )
-            ],
-          ),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 40),
+            BuildBannerCourse(
+              title: "Menghitung",
+              description:
+                  "Materi ini akan mengajarkan anakmu dalam menghitung",
+              image: "assets/svgs/education_menghitung.svg",
+              background: Colors.red[300],
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            Column(
+              children: List<Widget>.generate(_levels.length, (int index) {
+                return _levels[index];
+              }),
+            )
+          ],
         ),
       ),
     );

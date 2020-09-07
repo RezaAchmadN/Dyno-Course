@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "396152190801",
+    "firebase_url": "https://gemastik-dinocourse.firebaseio.com",
+    "project_id": "gemastik-dinocourse",
+    "storage_bucket": "gemastik-dinocourse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396152190801:android:e5f2df98d64942ab9e8570",
+        "android_client_info": {
+          "package_name": "com.example.gemastik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396152190801-lhcii316pk4sdq3t5u3tbqapt6h7fub0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP5IdQUBoWl7f14dJiX2HF7qVSffZuLg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396152190801-lhcii316pk4sdq3t5u3tbqapt6h7fub0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

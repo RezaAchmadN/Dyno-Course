@@ -4,10 +4,6 @@ import 'package:gemastik/education_page.dart';
 
 abstract class CourseController extends State<BuildBannerCourse> {
   navigateToEducationPage() {
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => EducationPage()),
-      (Route<dynamic> route) => false,
-    );
+    Navigator.pop(context);
   }
 }

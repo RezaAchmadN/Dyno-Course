@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gemastik/community_page/view.dart';
 import 'package:gemastik/dashboard_page/controller.dart';
 import 'package:gemastik/profile_page/view.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
@@ -33,7 +34,7 @@ class _DashboardViewState extends DashboardController {
                   ],
                 ),
               )
-            : ProfileView(),
+            : _index == 1 ? CommunityPage() : ProfileView(),
         bottomNavigationBar: BottomNavigationBar(
           onTap: (newIndex) => setState(() {
             _index = newIndex;
@@ -44,6 +45,8 @@ class _DashboardViewState extends DashboardController {
             BottomNavigationBarItem(
                 icon: Icon(Icons.home), title: Text("Beranda")),
             BottomNavigationBarItem(
+                icon: Icon(Icons.chat), title: Text("Community")),
+            BottomNavigationBarItem(
                 icon: Icon(Icons.person), title: Text("Profil")),
           ],
         ),
@@ -52,6 +55,15 @@ class _DashboardViewState extends DashboardController {
   }
 
   Widget _buildBanner() {
+    List<Widget> _listCard = [
+      GestureDetector(
+          onTap: () => navigateToMewarnai(), child: _card("Mewarnai", 2)),
+      GestureDetector(
+          onTap: () => navigateToMenghitung(), child: _card("Menghitung", 4)),
+      GestureDetector(
+          onTap: () => navigateToMembaca(), child: _card("Membaca", 3)),
+    ];
+
     return Container(
       height: 280,
       child: Stack(
@@ -110,7 +122,7 @@ class _DashboardViewState extends DashboardController {
                             builder: (BuildContext context) {
                               return Container(
                                 width: MediaQuery.of(context).size.width,
-                                child: _card(),
+                                child: _listCard[i - 1],
                               );
                             },
                           );
@@ -145,7 +157,7 @@ class _DashboardViewState extends DashboardController {
     );
   }
 
-  Widget _card() {
+  Widget _card(String materi, int level) {
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(
@@ -166,7 +178,7 @@ class _DashboardViewState extends DashboardController {
             ),
             SizedBox(height: 4),
             Text(
-              "Mewarnai",
+              materi,
               style: TextStyle(
                   fontSize: 12,
                   color: Colors.red[300],
@@ -178,7 +190,7 @@ class _DashboardViewState extends DashboardController {
               width: 250,
               child: StepProgressIndicator(
                 totalSteps: 5,
-                currentStep: 2,
+                currentStep: level,
                 size: 36,
                 selectedColor: Colors.green[300],
                 unselectedColor: Colors.grey[200],
@@ -190,7 +202,8 @@ class _DashboardViewState extends DashboardController {
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(10.0),
                                   bottomLeft: Radius.circular(10.0)),
-                              color: index == 2 - 1 ? Colors.red[300] : color,
+                              color:
+                                  index == level - 1 ? Colors.red[300] : color,
                             ),
                             height: 12,
                           )
@@ -200,15 +213,17 @@ class _DashboardViewState extends DashboardController {
                                   borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(10.0),
                                       bottomRight: Radius.circular(10.0)),
-                                  color:
-                                      index == 2 - 1 ? Colors.red[300] : color,
+                                  color: index == level - 1
+                                      ? Colors.red[300]
+                                      : color,
                                 ),
                                 height: 12,
                               )
                             : Container(
                                 decoration: BoxDecoration(
-                                  color:
-                                      index == 2 - 1 ? Colors.red[300] : color,
+                                  color: index == level - 1
+                                      ? Colors.red[300]
+                                      : color,
                                 ),
                                 height: 12,
                               ),

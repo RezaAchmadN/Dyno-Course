@@ -4,6 +4,7 @@ import 'package:gemastik/course_page/menghitung.dart';
 import 'package:gemastik/course_page/mewarnai.dart';
 import 'package:gemastik/dashboard_page.dart';
 import 'package:gemastik/education_page/view.dart';
+import 'package:page_transition/page_transition.dart';
 
 abstract class EducationController extends State<EducationView> {
   navigateToDashboardPage() {
@@ -17,7 +18,8 @@ abstract class EducationController extends State<EducationView> {
   navigateToMewarnai() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MewarnaiPage()),
+      PageTransition(
+          type: PageTransitionType.rightToLeftWithFade, child: MewarnaiPage()),
     );
   }
 

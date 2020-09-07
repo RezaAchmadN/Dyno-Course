@@ -51,28 +51,26 @@ class _MembacaPageState extends State<MembacaPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 40),
-              BuildBannerCourse(
-                title: "Membaca",
-                description: "Materi ini akan mengajarkan anakmu dalam membaca",
-                image: "assets/svgs/education_membaca.svg",
-                background: Colors.blue[300],
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Column(
-                children: List<Widget>.generate(_levels.length, (int index) {
-                  return _levels[index];
-                }),
-              )
-            ],
-          ),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 40),
+            BuildBannerCourse(
+              title: "Membaca",
+              description: "Materi ini akan mengajarkan anakmu dalam membaca",
+              image: "assets/svgs/education_membaca.svg",
+              background: Colors.blue[300],
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            Column(
+              children: List<Widget>.generate(_levels.length, (int index) {
+                return _levels[index];
+              }),
+            )
+          ],
         ),
       ),
     );
