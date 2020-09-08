@@ -19,33 +19,39 @@ class _LoginViewState extends LoginController {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Container(
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SvgPicture.asset("assets/svgs/logo.svg"),
-              SizedBox(height: 16),
-              _buildTF("Email", emailController),
-              SizedBox(height: 16),
-              _buildPasswordTF(),
-              SizedBox(height: 16),
-              _buildButtonSignIn(),
-              SizedBox(height: 16),
-              _buildStringLupaPassword(),
-              SizedBox(height: 64),
-              Text("Masuk Menggunakan Akun Lainnya"),
-              SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(child: _buildButtonFacebook()),
-                  Expanded(child: _buildButtonTwitter()),
-                ],
-              ),
-              SizedBox(height: 16),
-              _buildStringDaftar(),
-            ],
+        body: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  "assets/svgs/logo.svg",
+                  height: 100,
+                ),
+                SizedBox(height: 32),
+                _buildTF("Email", emailController),
+                SizedBox(height: 16),
+                _buildPasswordTF(),
+                SizedBox(height: 16),
+                _buildButtonSignIn(),
+                SizedBox(height: 16),
+                _buildStringLupaPassword(),
+                SizedBox(height: 64),
+                Text("Masuk Menggunakan Akun Lainnya"),
+                SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(child: _buildButtonFacebook()),
+                    Expanded(child: _buildButtonTwitter()),
+                  ],
+                ),
+                SizedBox(height: 16),
+                _buildStringDaftar(),
+              ],
+            ),
           ),
         ),
       ),
@@ -139,7 +145,8 @@ class _LoginViewState extends LoginController {
           borderRadius: new BorderRadius.circular(18.0),
         ),
         onPressed: () {
-          navigateToDashboardPage();
+          navigateToDashboardPage(
+              emailController.text, passwordController.text);
           setState(() {
             // isLoadingTrue();
           });

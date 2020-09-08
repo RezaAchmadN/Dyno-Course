@@ -22,58 +22,101 @@ class _DaftarView1State extends DaftarController1 {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Container(
-          padding: EdgeInsets.all(16),
-          width: double.infinity,
-          child: Stack(
-            children: [
-              Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 40),
-                    GestureDetector(
-                      onTap: () => {navigateToLoginPage()},
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(60),
-                          border: Border.all(color: Colors.pink[100]),
+        body: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(16),
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height,
+            child: Stack(
+              children: [
+                Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 40),
+                      GestureDetector(
+                        onTap: () => {navigateToLoginPage()},
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(60),
+                            border: Border.all(color: Colors.pink[100]),
+                          ),
+                          child: Icon(Icons.arrow_back),
                         ),
-                        child: Icon(Icons.arrow_back),
                       ),
-                    ),
-                    SizedBox(height: 16),
-                    Text("Step 1 dari 2"),
-                    SizedBox(height: 16),
-                    Text(
-                      "Data Diri Ibunda",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
-                    ),
-                    SizedBox(height: 32),
-                    Column(
-                      children: [
-                        _buildTF("Nama Lengkap", namaController),
-                        SizedBox(height: 16),
-                        _buildTF("Email", emailController),
-                        SizedBox(height: 16),
-                        _buildTF("Password", passwordController),
-                        SizedBox(height: 16),
-                        _buildDateTF("tanggal lahir", emailController),
-                        SizedBox(height: 16),
-                      ],
-                    ),
-                  ],
+                      SizedBox(height: 16),
+                      Text("Step 1 dari 2"),
+                      SizedBox(height: 16),
+                      Text(
+                        "Data Diri Ibunda",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 26),
+                      ),
+                      SizedBox(height: 32),
+                      Column(
+                        children: [
+                          _buildTF("Nama Lengkap", namaController),
+                          SizedBox(height: 16),
+                          _buildTF("Email", emailController),
+                          SizedBox(height: 16),
+                          _buildPasswordTF(),
+                          SizedBox(height: 16),
+                          _buildDateTF("tanggal lahir", emailController),
+                          SizedBox(height: 16),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Align(
-                  alignment: Alignment.bottomCenter,
-                  child: _buildButtonSignUp())
-            ],
+                Align(
+                    alignment: Alignment.bottomCenter,
+                    child: _buildButtonSignUp())
+              ],
+            ),
           ),
         ),
+      ),
+    );
+  }
+
+  bool _obscureText = true;
+  Widget _buildPasswordTF() {
+    return Container(
+      // padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            "Password",
+            style: new TextStyle(
+              fontSize: 16.0,
+            ),
+          ),
+          Container(
+            height: 45.0,
+            child: TextField(
+              controller: passwordController,
+              obscureText: _obscureText,
+              decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red[100], width: 3.0),
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(10.0),
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red[100], width: 3.0),
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(10.0),
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -176,7 +219,7 @@ class _DaftarView1State extends DaftarController1 {
           borderRadius: new BorderRadius.circular(18.0),
         ),
         onPressed: () {
-          navigateToDaftar2();
+          navigateToDaftar2(emailController.text, passwordController.text);
         },
         color: Colors.red[400],
         textColor: Colors.white,
