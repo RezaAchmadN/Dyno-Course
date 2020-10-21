@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gemastik/course_level2_page/description.dart';
 import 'package:gemastik/course_level2_page/view2.dart';
 import 'package:gemastik/course_page/mewarnai.dart';
 import 'package:page_transition/page_transition.dart';
@@ -72,7 +73,7 @@ class _Level2State extends State<Level2> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MewarnaiPage()),
+                    MaterialPageRoute(builder: (context) => DescLevel2()),
                   );
                 },
               ),

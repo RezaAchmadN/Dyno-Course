@@ -201,7 +201,7 @@ class _EducationViewState extends EducationController {
                           fontSize: 12,
                           fontWeight: FontWeight.bold),
                     ),
-                  )
+                  ),
                 ],
               ),
             )

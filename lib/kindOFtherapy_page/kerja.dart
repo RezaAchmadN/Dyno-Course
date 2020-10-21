@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gemastik/kindOFtherapy_page/video.dart';
 import 'package:gemastik/kindOFtherapy_page/view.dart';
 
 void main(List<String> args) {
@@ -11,32 +12,7 @@ class KerjaView extends StatefulWidget {
 }
 
 class _KerjaViewState extends State<KerjaView> {
-  List<Widget> _therapies = [
-    BuildTherapy(
-      title: "Lakukan Terapi Ini Agar Anak Bisa Cepat Bicara",
-      description:
-          "Hello Bunda, dalam video ini saya mencoba berbagi tips bermanfaat tentang bagaimana caranya membantu anak / balita agar segera bisa berbicara sesuai dengan usianya.",
-      photo: "assets/images/therapy1.png",
-    ),
-    BuildTherapy(
-      title: "Penyebab Anak Terlambat Bicara dan Cara Mengatasinya",
-      description:
-          "Anak terlambat bicara tak jarang menimbulkan kekhawatiran orang tuanya. Tiap orang tua pasti menantikan kata pertama yang terucap dari buah hati tercinta.",
-      photo: "assets/images/therapy2.png",
-    ),
-    BuildTherapy(
-      title: "Lakukan Terapi Ini Agar Anak Bisa Cepat Bicara",
-      description:
-          "Hello Bunda, dalam video ini saya mencoba berbagi tips bermanfaat tentang bagaimana caranya membantu anak / balita agar segera bisa berbicara sesuai dengan usianya.",
-      photo: "assets/images/therapy1.png",
-    ),
-    BuildTherapy(
-      title: "Penyebab Anak Terlambat Bicara dan Cara Mengatasinya",
-      description:
-          "Anak terlambat bicara tak jarang menimbulkan kekhawatiran orang tuanya. Tiap orang tua pasti menantikan kata pertama yang terucap dari buah hati tercinta.",
-      photo: "assets/images/therapy2.png",
-    ),
-  ];
+  List<Widget> _therapies = [];
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +37,40 @@ class _KerjaViewState extends State<KerjaView> {
                 height: 16,
               ),
               Column(
-                children: List<Widget>.generate(_therapies.length, (int index) {
-                  return _therapies[index];
-                }),
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                    //   Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => Video()),
+                    // );
+                    },
+                    child: BuildTherapy(
+                      title: "Latihan Meniup",
+                      description:
+                          "Mari latih anak anda untuk meniup untuk membiasakannya dalam menggunakan rahangnya",
+                      photo: "assets/images/kerja.png",
+                    ),
+                  ),
+                  BuildTherapy(
+                    title: "Latihan Meniup",
+                    description:
+                        "Mari latih anak anda untuk meniup untuk membiasakannya dalam menggunakan rahangnya",
+                    photo: "assets/images/kerja.png",
+                  ),
+                  BuildTherapy(
+                    title: "Latihan Meniup",
+                    description:
+                        "Mari latih anak anda untuk meniup untuk membiasakannya dalam menggunakan rahangnya",
+                    photo: "assets/images/kerja.png",
+                  ),
+                  BuildTherapy(
+                    title: "Latihan Meniup",
+                    description:
+                        "Mari latih anak anda untuk meniup untuk membiasakannya dalam menggunakan rahangnya",
+                    photo: "assets/images/kerja.png",
+                  ),
+                ],
               )
             ],
           ),
