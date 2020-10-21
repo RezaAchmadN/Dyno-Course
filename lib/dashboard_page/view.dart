@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gemastik/community_page/view.dart';
 import 'package:gemastik/dashboard_page/controller.dart';
@@ -19,6 +20,11 @@ class _DashboardViewState extends DashboardController {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Gilroy'),
       home: Scaffold(

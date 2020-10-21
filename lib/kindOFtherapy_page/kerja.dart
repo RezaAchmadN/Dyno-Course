@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gemastik/kindOFtherapy_page/video.dart';
 import 'package:gemastik/kindOFtherapy_page/view.dart';
 
@@ -16,6 +17,11 @@ class _KerjaViewState extends State<KerjaView> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     return MaterialApp(
       home: Scaffold(
         body: SingleChildScrollView(
@@ -40,10 +46,10 @@ class _KerjaViewState extends State<KerjaView> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                    //   Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => Video()),
-                    // );
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Video()),
+                    );
                     },
                     child: BuildTherapy(
                       title: "Latihan Meniup",

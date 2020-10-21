@@ -1,57 +1,39 @@
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
-// import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-// class Video extends StatefulWidget {
-//   @override
-//   _VideoState createState() => _VideoState();
-// }
+class Video extends StatefulWidget {
+  @override
+  _VideoState createState() => _VideoState();
+}
 
-// class _VideoState extends State<Video> {
-//   String VideoURL = "https://www.youtube.com/watch?v=oxsBSCf5-B8&list=RDoxsBSCf5-B8&start_radio=1";
+class _VideoState extends State<Video> {
+  YoutubePlayerController _controller = YoutubePlayerController(
+      initialVideoId: 'Ma-HFQRXp-s', // id youtube video
+      flags: YoutubePlayerFlags(
+        autoPlay: true,
+        mute: false,
+      ));
 
-//   YoutubePlayerController _controller;
-
-//   @override
-//   void initState() {
-
-//     _controller = YoutubePlayerController(
-//         initialVideoId: YoutubePlayer.convertUrlToId(VideoURL)
-//     );
-
-//     super.initState();
-//   }
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: SafeArea(
-//         child: SingleChildScrollView(
-//           child: Container(
-//             child:Column(
-//               crossAxisAlignment:CrossAxisAlignment.stretch,
-//               children: <Widget>[
-//                 YoutubePlayerBuilder(
-//                   player: YoutubePlayer(
-//                     controller: _controller,
-//                     aspectRatio:16/9,
-
-//                     showVideoProgressIndicator: true,
-//                   ),
-//                 builder:(context,player){
-//                     return Column(
-//                     children: <Widget>[
-//                      player
-//                     ],
-//                     );
-//                 },
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-
-
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    //  SystemChrome.setPreferredOrientations(
+    //     [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+    // SystemChrome.setEnabledSystemUIOverlays([]);
+    return Container(
+    child: Align(
+      alignment: Alignment.center,
+      child: FittedBox(
+        fit: BoxFit.fill,
+        child:  YoutubePlayer(
+              controller: _controller,
+              showVideoProgressIndicator: true,
+              progressIndicatorColor: Colors.blueAccent,
+              
+            ),
+        ),
+      ),
+  );
+  }
+}
