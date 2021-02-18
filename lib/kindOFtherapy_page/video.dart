@@ -18,22 +18,21 @@ class _VideoState extends State<Video> {
 
   @override
   Widget build(BuildContext context) {
-    //  SystemChrome.setPreferredOrientations(
-    //     [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
-    // SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return Container(
-    child: Align(
-      alignment: Alignment.center,
-      child: FittedBox(
-        fit: BoxFit.fill,
-        child:  YoutubePlayer(
-              controller: _controller,
-              showVideoProgressIndicator: true,
-              progressIndicatorColor: Colors.blueAccent,
-              
-            ),
+      child: Align(
+        alignment: Alignment.center,
+        child: FittedBox(
+          fit: BoxFit.fill,
+          child: YoutubePlayer(
+            controller: _controller,
+            showVideoProgressIndicator: true,
+            progressIndicatorColor: Colors.blueAccent,
+          ),
         ),
       ),
-  );
+    );
   }
 }
